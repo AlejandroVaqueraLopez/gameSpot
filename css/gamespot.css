@@ -1,0 +1,358 @@
+/*Variables*/
+/*Clases*/
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
+body {
+  font-family: 'Play', sans-serif;
+  background: #00439c;
+}
+
+header {
+  height: 110px;
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header a {
+  color: #fff;
+}
+
+header .container__logo {
+  height: 100%;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: initial;
+      -ms-flex-direction: initial;
+          flex-direction: initial;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 35px;
+}
+
+header .img-logo {
+  height: 60px;
+}
+
+header .container__logo h2 {
+  margin-left: 10px;
+}
+
+header a {
+  text-decoration: none;
+}
+
+.navigator {
+  height: 100%;
+  width: auto;
+}
+
+.nav-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 110px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-user h3 {
+  padding-right: 35px;
+}
+
+.navigator .menu-list {
+  /*Primero se desaparece el elemento hijo*/
+  display: none;
+}
+
+.navigator:hover .menu-list, .menu-list:hover {
+  /*Luego se aparece*/
+  display: block;
+  /*Esto sirve para accionar una propiedad en un elemento hijo cuando haces :hover al padre*/
+}
+
+.img-user {
+  height: 50px;
+  margin: 10px;
+}
+
+.menu-list {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: -110px;
+  padding-top: 80px;
+  padding-right: 35px;
+  padding-bottom: 25px;
+}
+
+.menu-list li {
+  text-decoration: none;
+  list-style: none;
+  height: auto;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 8px;
+}
+
+.menu-list li a {
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+}
+
+.menu-list li a:hover {
+  text-decoration: underline;
+}
+
+/*Seccion de buscador*/
+.main {
+  height: calc(100vh - 110px);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__title {
+  color: #fff;
+}
+
+.main__input {
+  color: #fff;
+  height: 50px;
+  width: 70%;
+  margin: 15px 0px 40px 0px;
+  border: solid 2px #fff;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#00439c), to(#2d69b8));
+  background: linear-gradient(to right, #00439c, #2d69b8);
+  padding: 5px 15px;
+}
+
+.main__input:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+}
+
+::-ms-input-placeholder {
+  color: #fff;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+/*Seccion de carrusel*/
+.carousel {
+  width: 100%;
+  overflow: scroll;
+  padding: 30px;
+  position: relative;
+  /*Todos los elementos hijos se posicionaran con respecto a este elemento padre*/
+  background: #242424;
+}
+
+.carousel__container {
+  white-space: nowrap;
+  /*Para que no salte de linea cuando los elementos sobrepasen el width de pantalla*/
+  margin: 70px 0px;
+}
+
+.carousel-item {
+  width: 200px;
+  height: 250px;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  margin: 5px;
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+  /*Para que el item seleccionado se mueva junto con los demas items cuando se haga al seleccionado un scale mayor*/
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+.carousel-item:nth-child(1) {
+  background-image: url("../images/re4.jpg");
+}
+
+.carousel-item:nth-child(2) {
+  background-image: url("../images/assasins-creed.jpg");
+}
+
+.carousel-item:nth-child(3) {
+  background-image: url("../images/cod-bops-3.jpg");
+}
+
+.carousel-item:nth-child(4) {
+  background-image: url("../images/cod-bops-4.jpg");
+}
+
+.carousel-item:nth-child(5) {
+  background-image: url("../images/cod-ghost.jpg");
+}
+
+.carousel-item:nth-child(6) {
+  background-image: url("../images/control.jpg");
+}
+
+.carousel-item:nth-child(7) {
+  background-image: url("../images/Dollhouse.jpg");
+}
+
+.carousel-item:nth-child(8) {
+  background-image: url("../images/doom-ethernal.jpg");
+}
+
+.carousel-item:nth-child(9) {
+  background-image: url("../images/farcry-4.jpg");
+}
+
+.carousel-item:nth-child(10) {
+  background-image: url("../images/fortnite.jpg");
+}
+
+.carousel-item:nth-child(11) {
+  background-image: url("../images/ghost-of-tsushima.jpg");
+}
+
+.carousel-item:nth-child(12) {
+  background-image: url("../images/gow-4.png");
+}
+
+.carousel-item:nth-child(13) {
+  background-image: url("../images/mcx.jpg");
+}
+
+.carousel-item:nth-child(14) {
+  background-image: url("../images/metal-gear-solid-v.jpg");
+}
+
+.carousel-item:nth-child(15) {
+  background-image: url("../images/re-rev-2.jpg");
+}
+
+.carousel-item:nth-child(16) {
+  background-image: url("../images/uncharted-4.jpg");
+}
+
+.carousel-item:nth-child(17) {
+  background-image: url("../images/Watch-Dogs-Legion.jpg");
+}
+
+.carousel-item__details {
+  display: none;
+  height: 20%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#004998), to(#0084cc));
+  background: linear-gradient(to right, #004998, #0084cc);
+  position: absolute;
+  padding-top: 8%;
+  bottom: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.carousel-item__details h6 {
+  color: #fff;
+  text-align: center;
+}
+
+.carousel-item:hover .carousel-item__details {
+  display: block;
+}
+
+.carousel-item:hover ~ .carousel-item {
+  /*~ sirve para aplicar a todos los elementos que proceden del seleccionado*/
+  -webkit-transform: translate3d(100px, 0, 0);
+          transform: translate3d(100px, 0, 0);
+  /*Con esto, hacemos que los demas elementos que proceden al seleccionado, se desplazen a la derecha*/
+}
+
+.carousel__container:hover .carousel-item {
+  opacity: 0.3;
+  /*Cuando se haga hover en el panel de los items, los items se pongan con menor opacidad*/
+}
+
+.carousel__container:hover .carousel-item:hover {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  /*Para que cuando se haga hover en el panel de los items y aparte a un item en especifico, aumente en tamano y devuelva su opacidad a 1*/
+  opacity: 1;
+}
+
+.footer {
+  margin-top: auto;
+  background: #313131;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 500px;
+  width: 100%;
+}
+
+.footer a {
+  padding: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=gamespot.css.map */
