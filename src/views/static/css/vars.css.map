@@ -1,9 +1,7 @@
 {
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "vars.scss"
-    ],
-    "names": [],
-    "file": "vars.css"
+"version": 3,
+"mappings": "",
+"sources": [],
+"names": [],
+"file": "vars.css"
 }
