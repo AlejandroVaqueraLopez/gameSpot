@@ -1,11 +1,11 @@
 /*Imports*/
-@import url('./class');
-@import url('./vars');
+@import './class';
+@import './vars';
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
 body{
-   font-family: 'Play', sans-serif;
+    font-family: 'Play', sans-serif;
     background: $gamespotColor;
 }
 header{
@@ -17,6 +17,9 @@ header{
     @include flex(initial, space-between, center);
     a{
         color:$blanco;
+    }
+    a:nth-child(1){
+        text-decoration:none;
     }
 }
 
@@ -120,7 +123,8 @@ header .img-logo{
 /*Seccion de carrusel*/
 .carousel{
     width: 100%;
-    overflow:scroll;
+    overflow-x:scroll;
+    overflow-y:hidden;
     padding:30px;
     position: relative; /*Todos los elementos hijos se posicionaran con respecto a este elemento padre*/
     background:$footerColor;
