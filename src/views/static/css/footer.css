@@ -1,0 +1,21 @@
+/*Imports*/
+.footer {
+  margin-top: 150px;
+  background: #242424;
+  display: flex;
+  flex-direction: initial;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 500px;
+  width: 100%;
+}
+.footer a {
+  padding: 15px;
+  text-decoration: none;
+  color: #fff;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=footer.css.map */

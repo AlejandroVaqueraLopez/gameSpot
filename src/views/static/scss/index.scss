@@ -1,0 +1,205 @@
+/*Imports*/
+@import './class';
+@import './vars';
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+
+/*Seccion de buscador*/
+.main{
+    height: calc(60vh - 110px);
+    width: 100%;
+    @include flex(column, center, center);
+}
+
+.main__title{
+    color:$blanco;
+}
+
+.main__input{
+    color:$blanco;
+    height: 50px;
+    width: 70%;
+    max-width:700px;
+    margin:18px 0px;
+    border: solid 2px $blanco;
+    border-radius: 10px;
+    background: linear-gradient(to right,$gamespotColor,$ndGamespotColor);
+    padding:5px 15px;
+    .main__input:focus{
+        outline:none;
+    }
+}
+
+::placeholder{
+    color:$blanco;
+}
+
+/*selectors container*/
+.type-container{
+    color:$blanco;
+    height: 50px;
+    width: 70%;
+    max-width:700px;
+    display:flex;
+    justify-content:space-between;
+    .type-container__item{
+        display:flex;
+        flex-direction:column;
+        width:20%;
+        select{
+            border:none;
+            border-radius:5px;
+            background:$selectColor;
+            color:$blanco;
+            margin-top:5px;
+            height:28px;
+        }
+    }
+}
+
+/*Seccion de carrusel*/
+.carousel{
+    width: 100%;
+    height:auto;
+    overflow:hidden;
+    padding:30px;
+    position: relative; /*Todos los elementos hijos se posicionaran con respecto a este elemento padre*/
+    background:$footerColor;
+}
+
+.carousel__container{
+    width:100%;
+    min-height:300px;
+    white-space:wrap;/*Para que no salte de linea cuando los elementos sobrepasen el width de pantalla*/
+    margin:70px 0px;
+    position:relative;
+    ul{
+        .loading-container{
+            width:100%;
+            height:200px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            color:#fff;
+            img{
+                height:60%;
+                margin-bottom:10px;
+            }
+        }
+        .carousel-item{
+            list-style:none;
+            width:200px;
+            height: 250px;
+            display: inline-block;
+            cursor: pointer;
+            margin:5px;
+            position: relative;
+            //outline:solid yellow;
+            transition:all 0.5s;
+            .carousel-item__container{
+                height:100%;
+                width:100%;
+                background-position: center;
+                background-size: cover;
+                background-image: url("../icons/empty-icon.png");
+                transition: transform 0.5s;
+                border-radius:10px;
+                .btn-close{
+                    position:absolute;
+                    height:20px;
+                    background:none;
+                    border:none;
+                    background-image:url("../icons/close-icon.png");
+                    background-size:cover;
+                    background-position:center;
+                    width:20px;
+                    top:5px;
+                    right:5px;
+                    display:none;
+                    &:hover{
+                        cursor:pointer;
+                    }
+                }
+                .carousel-item__details{
+                    height: 20%;
+                    width: 100%;
+                    //outline:solid red;
+                    display:flex;
+                    flex-direction:column;
+                    justify-content:center;
+                    background:linear-gradient(to right,#004998, #0084cc);
+                    position:absolute;
+                    padding:0px 10px 0px 10px;
+                    bottom:0px;
+                    border-top-left-radius: 0px;
+                    border-top-right-radius: 0px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    .carousel-item__name{
+                        color:$blanco;
+                        text-align: center;
+                    }
+                    .carousel-item__details-info{
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:center;
+                        //outline:solid white;
+                        height:70%;
+                        margin-top:3px;
+                        display:none;
+                        color:#fff;
+                        .carousel-item__released{
+                            display:inline-block;
+                            width:20%;
+                            //outline:solid red;
+                        }
+                        .carousel-item__platforms{
+                            display:inline-block;
+                            width:20%;
+                            //outline:solid red;
+                        }
+                        .carousel-item__generes{
+                            display:inline-block;
+                            width:20%;
+                            //outline:solid red;
+                        }
+                        .carousel-item__esrb{
+                            display:inline-block;
+                            width:20%;
+                            //outline:solid red;
+                        }
+                    }
+                }
+                &:hover .carousel-item__details{
+                    display:block;
+                }
+            }
+
+        }
+    }
+}
+
+.carousel-item:hover ~ .carousel-item div{ /*~ sirve para aplicar a todos los elementos que proceden del seleccionado*/
+    //transform: translate3d(0px,0,0);/*Con esto, hacemos que los demas elementos que proceden al seleccionado, se desplazen a la derecha*/
+    //position:absolute;
+    //z-index:1;
+}
+
+.carousel-item:hover ~ .carousel-item div{  /*~ sirve para aplicar a todos los elementos que proceden del seleccionado*/
+}
+
+.carousel__container:hover .carousel-item > div{
+    //opacity: 0.3; /*Cuando se haga hover en el panel de los items, los items se pongan con menor opacidad*/
+}
+
+.carousel__container:hover .carousel-item:hover .hover, {
+    transform:scale(1.7) !important;/*Para que cuando se haga hover en el panel de los items y aparte a un item en especifico, aumente en tamano y devuelva su opacidad a 1*/
+    position:absolute !important;
+    z-index:2 !important;
+    opacity: 1;
+}
+
+

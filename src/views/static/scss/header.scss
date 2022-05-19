@@ -1,0 +1,86 @@
+/*Imports*/
+@import './class';
+@import './vars';
+
+header{
+    height: 110px;
+    width: 100%;
+    font-size: 16px;
+    color:$blanco;
+    font-weight: bold;
+    @include flex(initial, space-between, center);
+    a{
+        color:$blanco;
+    }
+    a:nth-child(1){
+        text-decoration:none;
+    }
+}
+
+header .container__logo{
+    height: 100%;
+    width: auto;
+    @include flex(initial, space-between, center);
+    margin-left:35px;
+    h2{
+        margin-left:10px;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+
+header .img-logo{
+    height: 60px;
+}
+
+.navigator{
+    height: 100%;
+    width: auto;
+}
+
+.nav-user{
+    width: 100%;
+    height: 110px;
+    @include flex(initial, center, center);
+    h3{
+        padding-right:35px;
+    }
+}
+
+.navigator .menu-list{ /*Primero se desaparece el elemento hijo*/
+    display: none;
+}
+
+.navigator:hover .menu-list, .menu-list:hover{ /*Luego se aparece*/
+    display: block;  /*Esto sirve para accionar una propiedad en un elemento hijo cuando haces :hover al padre*/
+}
+
+.img-user{
+    height: 50px;
+    margin: 10px;
+}
+
+.menu-list{
+    display: block;
+    width:100%;
+    height:auto;
+    margin-top:-110px; 
+    padding-top:80px;   
+    padding-right:35px;
+    padding-bottom:25px;
+    li{
+        list-style: none;
+        height: auto;
+        width: 100%;
+        text-align: right;
+        margin-bottom:8px;
+        a{
+            text-align: center;
+            text-decoration: none;
+            a:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

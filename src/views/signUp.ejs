@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/normalize.css">
+    <link rel="stylesheet" href="./static/css/global.css">
+    <link rel="stylesheet" href="./static/css/header.css">
+    <link rel="stylesheet" href="./static/css/signUp.css">
+    <link rel="stylesheet" href="./static/css/footer.css">
+    <title>GameSpot register</title>
+</head>
+<body>
+
+    <%- include("./header.ejs",{nav:false}) -%>
+
+    <section class="register">
+        <div class="register__container">
+            <h2>Registrate</h2>
+
+            <form action="" class="register__container--form">
+                <input placeholder="Nombre" type="text" class="input">
+                <input placeholder="correo" type="text" class="input">
+                <input placeholder="contrasena" type="password" class="input">
+                <button class="button" type="submit">Registrarme e iniciar sesion</button>
+
+                <div class="register__container--rememberMe">
+                    <div class="container__rememberMe--checkbox">
+                        <input type="checkbox" name="" id="ckRememberMe" value="checkbox">
+                        <h4>Recuerdame</h4>
+                    </div>
+
+                </div>
+            </form>
+
+            <section class="register__container--socialMedia">
+                <div>
+                    <img class="socialMedia--google" src="./static/icons/google.png" alt="#"><a href="#">Registrarme con Google</a> 
+                </div>
+                <div>
+                    <img class="socialMedia--twitter" src="./static/icons/twitter.png" alt="#"><a href="#">Registrarme con Twitter</a>
+                </div>
+
+            </section>
+
+            <div class="register__container--register">
+                <h4>Ya tienes cuenta?</h4>
+                <a href="./signIn">Inicia sesion</a>
+            </div>
+
+        </div>
+
+        <div class="register__setupImage">
+            <h2>Tu username, tu estilo</h2>
+        </div>
+    </section>
+
+    <%- include("./footer.ejs") %>
+
+</body>
+</html>

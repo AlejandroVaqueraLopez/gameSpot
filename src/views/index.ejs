@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/normalize.css">
+    <link rel="stylesheet" href="./static/css/global.css">
+    <link rel="stylesheet" href="./static/css/header.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="stylesheet" href="./static/css/footer.css">
+    <title>GameSpot</title>
+</head>
+<body>
+
+    <%- include("./header.ejs",{nav:true}) -%>
+
+    <section class="main">
+        <h2 class="main__title">¿Qué quieres jugar hoy?</h2>
+        <input id="txt-filter" type="text" name="search" id="" placeholder="Buscar..." class="main__input" readonly>
+
+        <div class="type-container">
+            <div class="type-container__item">
+                <label for="release">Release</label>
+                <select id="release-filter" name="release">
+                    <!--The elements are auto-generated-->
+                    <option name="All" value="" selected>All</option>
+                </select>
+            </div>
+            <div class="type-container__item">
+                <label for="platform">Platform</label>
+                <select id="platform-filter" name="platform">
+                    <!--The elements are auto-generated-->
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="type-container__item">
+                <label for="genre">Genre</label>
+                <select id="genre-filter" name="genre">
+                    <!--The elements are auto-generated-->
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="type-container__item">
+                <label for="esrb">ESRB</label>
+                <select id="esrb-filter" name="esrb">
+                    <!--The elements are auto-generated-->
+                    <option value="">All</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!--Seccion para el carrusel de videos-->
+    <section class="carousel">
+
+        <!--carousel container-->
+        <div class="carousel__container">
+            <ul class="carousel-container__list">
+                <!--here are the auto-generated item templates-->
+
+                <!--This container will dessapear when the api is done-->
+                <div class="loading-container">
+                    <img src="./static/icons/wait-icon.gif" alt="Wait-icon">
+                    <h2>Loading game list...</h2>
+                </div>
+
+            </ul>
+        </div>
+    </section>
+
+    <%- include("./footer.ejs") %>
+
+    <script type="module" src="./static/js/module.js"></script>
+
+</body>
+</html>

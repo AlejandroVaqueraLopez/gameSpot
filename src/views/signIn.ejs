@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/css/normalize.css">
+    <link rel="stylesheet" href="./static/css/global.css">
+    <link rel="stylesheet" href="./static/css/header.css">
+    <link rel="stylesheet" href="./static/css/signIn.css">
+    <link rel="stylesheet" href="./static/css/footer.css">
+    <title>GameSpot login</title>
+</head>
+<body>
+
+    <%- include("./header.ejs",{nav:false}) -%>
+
+    <section class="login">
+        <div class="login__container">
+            <h2>Inicia sesion</h2>
+
+            <form action="" class="login__container--form">
+                <input placeholder="correo" type="text" class="input">
+                <input placeholder="contrasena" type="password" class="input">
+                <button class="button" type="submit">Iniciar sesion</button>
+
+                <div class="login__container--rememberMe">
+                    <div class="container__rememberMe--checkbox">
+                        <input type="checkbox" name="" id="ckRememberMe" value="checkbox">
+                        <h4>Recuerdame</h4>
+                    </div>
+
+                    <a href="./">I forgot my password</a>
+
+                </div>
+            </form>
+
+            <section class="login__container--socialMedia">
+                <div>
+                    <img class="socialMedia--google" src="static/icons/google.png" alt="#"><a href="#">Inicia sesion con Google</a> 
+                </div>
+                <div>
+                    <img class="socialMedia--twitter" src="static/icons/twitter.png" alt="#"><a href="#">Inicia sesion con Twitter</a>
+                </div>
+
+            </section>
+
+            <div class="login__container--register">
+                <h4>No tienes cuenta?</h4>
+                <a href="./signUp">Registrate</a>
+            </div>
+
+        </div>
+
+        <div class="login__setupImage">
+            <h2>Solo entran los gamers...</h2>
+        </div>
+    </section>
+
+    <%- include("./footer.ejs") %>
+
+</body>
+</html>

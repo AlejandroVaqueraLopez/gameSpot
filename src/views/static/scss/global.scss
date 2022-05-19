@@ -1,0 +1,10 @@
+@import './class';
+@import './vars';
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+body{
+    font-family: 'Play', sans-serif;
+    background: $gamespotColor;
+}
