@@ -59,7 +59,6 @@ const expand = (element) => {
 
 				//reseting details container
 				carouselItemContainer.style.height = "20%";
-				carouselItemContainer.style.alignItems = "center";
 
 				//reseting lblName
 				lblName.style.textAlign = "center";
@@ -117,7 +116,6 @@ const expand = (element) => {
 
 				//reseting details container
 				carouselItemContainer.style.height = "20%";
-				carouselItemContainer.style.alignItems = "center";
 
 				//reseting lblName
 				lblName.style.textAlign = "center";

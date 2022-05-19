@@ -204,31 +204,34 @@ var resolver = async () => {
 
 	parsedData.forEach((item) => {
 		//generating released option tags
-		let releaseValue = item.released.substr(0,4);
-		if(!(releaseList.includes(releaseValue))){
-			const newOption = `<option value="${releaseValue}">${releaseValue}</option>`;
+		let currentRelease = item.released.substr(0,4);
+		let currentPlatform = item.platforms[0].platform.name;
+		let currentGenre = item.genres[0].name;
+		let currentEsrb = item.esrb;
+
+		if(!(releaseList.includes(currentRelease))){
+			const newOption = `<option value="${currentRelease}">${currentRelease}</option>`;
 			releaseFilter.innerHTML += newOption;
-			releaseList.push(releaseValue);
+			releaseList.push(currentRelease);
 		}
 		//generating platform option tags
-		if(!(platformList.includes(item.platforms[0].platform.name))){
-			const newOption = `<option value="${item.platforms[0].platform.name}">${item.platforms[0].platform.name}</option>`;
+		if(!(platformList.includes(currentPlatform))){
+			const newOption = `<option value="${currentPlatform}">${currentPlatform}</option>`;
 			platformFilter.innerHTML += newOption;
-			platformList.push(item.platforms[0].platform.name);
+			platformList.push(currentPlatform);
 		}
 		//generating genre option tags
-		if(!(genreList.includes(item.genres[0].name))){
-			const newOption = `<option value="${item.genres[0].name}">${item.genres[0].name}</option>`;
-			platformFilter.innerHTML += newOption;
-			platformList.push(item.genres[0].name);
+		if(!(genreList.includes(currentGenre))){
+			const newOption = `<option value="${currentGenre}">${currentGenre}</option>`;
+			genreFilter.innerHTML += newOption;
+			genreList.push(currentGenre);
 		}
 		//generating esrb option tags
-		if(!(genreList.includes(item.genres[0].name))){
-			const newOption = `<option value="${item.genres[0].name}">${item.genres[0].name}</option>`;
-			platformFilter.innerHTML += newOption;
-			platformList.push(item.genres[0].name);
+		if(!(esrbList.includes(currentEsrb))){
+			const newOption = `<option value="${currentEsrb}">${currentEsrb}</option>`;
+			esrbFilter.innerHTML += newOption;
+			esrbList.push(currentEsrb);
 		}
-
 	})
 
 	//here i make "parsedData" global to use it with filters
