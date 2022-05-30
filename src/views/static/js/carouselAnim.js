@@ -1,3 +1,4 @@
+import {nonFilteredList} from "./template.js";
 const carouselList = document.querySelector(".carousel-container__list");
 
 carouselList.addEventListener("click",(e)=>{
@@ -15,115 +16,155 @@ carouselList.addEventListener("click",(e)=>{
 });
 
 const expand = (element) => {
-	if((element.offsetLeft + (element.clientWidth/2)) < (window.innerWidth / 2)){
-		const middle = (window.innerWidth / 2) - (element.offsetLeft + (100 + 30));
-		element.style.transform = `translateX(${middle}px)`;
-		element.style.zIndex="3";
-		element.style.position ="fixed";
-		element.style.top = `calc((100vh / 2) - ${(element.clientHeight) / 2}px)`;
-		setTimeout(()=>{
-			const ndScreenX = window.innerWidth / 2;
-			const ndScreenY = window.innerHeight / 2;
-			element.style.width = `${ndScreenX}px`;
-			element.style.height = `${ndScreenY}px`;
 
-			element.style.transform= `translateX(${middle - ((ndScreenX - element.clientWidth) / 2)}px)`;
-			element.style.top = `calc((100vh / 2) - ${((element.clientHeight) / 2) + (ndScreenY - element.clientHeight)}px)`;
+	let currentObject = {};
 
-			//console.log(element.children[0]);
-			//details container
-			var carouselItemContainer = element.children[0].children[1];
-			carouselItemContainer.style.display = "flex";
-			carouselItemContainer.style.height = "30%";
-			carouselItemContainer.style.paddingTop = "3px";
-                    
-			//name label container
-			var lblName = element.children[0].children[1].children[0];
-			lblName.style.textAlign = "start";
+	nonFilteredList.forEach((item) => {
+		if(item.id == element.id){
+			currentObject = item;
+		}
+	})
 
-			//info container inside details item
-			var itemDetailsInfo = element.children[0].children[1].children[1];
-			itemDetailsInfo.style.display = "flex";
+	//console.log(element);
+	console.log(currentObject);
 
-			var btnClose = element.children[0].children[0];
-			btnClose.style.display = "block";
-			btnClose.onclick = ()=>{
-				btnClose.style.display = "none";
-				element.style.position = `initial`;
-				element.style.transform= `translateX(0px)`;
-				element.style.transform= `translateX(0px)`;
-				element.style.transform= `translateY(0px)`;
-				element.style.width = `200px`;
-				element.style.height = `250px`;
-				element.style.zIndex="2";
+	//main container
+	const modalContent = document.createElement("div");
+	modalContent.classList.add("modalContent");
+	modalContent.id = `${currentObject.id}`;
 
-				//reseting details container
-				carouselItemContainer.style.height = "20%";
+	//image container
+	const modalContentImage = document.createElement("div");
+	modalContentImage.classList.add("modalContentImage");
+	modalContentImage.style.backgroundImage =`url(${currentObject.image})`;
 
-				//reseting lblName
-				lblName.style.textAlign = "center";
+	//footer container
+	const modalContentFooter = document.createElement("div");
+	modalContentFooter.classList.add("modalContentFooter");
 
-				//reseting details info container
-				itemDetailsInfo.style.display = "none";
+	//first footer section
+	const stModalContentFooterSection = document.createElement("div");
+	stModalContentFooterSection.classList.add("modalContentFooterSection");
 
-			}
+		//title container
+		const lblTitle = document.createElement("label");
+		lblTitle.classList.add("lblTitle");
+		lblTitle.textContent = `${currentObject.name}`;
 
-		},400);
+	//second footer section
+	const ndModalContentFooterSection = document.createElement("div");
+	ndModalContentFooterSection.classList.add("modalContentFooterSection");
 
-	}else{
+		//release container
+		const dataContainerOne = document.createElement("div");
+		dataContainerOne.classList.add("dataContainer");
 
-		const middle = (window.innerWidth / 2) - (element.offsetLeft + (100 + 30));
-		element.style.transform = `translateX(-${(element.offsetLeft - window.innerWidth / 2) + (100 + 30)}px)`;
-		element.style.zIndex="3";
-		element.style.position ="fixed";
-		element.style.top = `calc((100vh / 2) - ${(element.clientHeight) / 2}px)`;
+			const lblRelease= document.createElement("label");
+			lblRelease.classList.add("lblRelease");
+			lblRelease.textContent = "Release";
+			const txtRelease= document.createElement("h4");
+			txtRelease.classList.add("txtRelease");
+			txtRelease.textContent = `${currentObject.released}`
 
-		setTimeout(()=>{
-			const ndScreenX = window.innerWidth / 2;
-			const ndScreenY = window.innerHeight / 2;
-			element.style.width = `${ndScreenX}px`;
-			element.style.height = `${ndScreenY}px`;
+		//platform container
+		const dataContainerTwo = document.createElement("div");
+		dataContainerTwo.classList.add("dataContainer");
 
-			element.style.transform= `translateX(${middle - ((ndScreenX - element.clientWidth) / 2)}px)`;
-			element.style.top = `calc((100vh / 2) - ${((element.clientHeight) / 2) + (ndScreenY - element.clientHeight)}px)`;
+			const lblPlatform = document.createElement("label");
+			lblPlatform.classList.add("lblPlatform");
+			lblPlatform.textContent = "Platform";
+			const txtPlatform= document.createElement("h4");
+			txtPlatform.classList.add("txtPlatform");
+			txtPlatform.textContent = `${currentObject.platforms[0].platform.name}`
 
-			//console.log(element.children[0]);
-			//details container
-			var carouselItemContainer = element.children[0].children[1];
-			carouselItemContainer.style.display = "flex";
-			carouselItemContainer.style.height = "30%";
-			carouselItemContainer.style.paddingTop = "3px";
-                    
-			//name label container
-			var lblName = element.children[0].children[1].children[0];
-			lblName.style.textAlign = "start";
+		//Genre container
+		const dataContainerThree = document.createElement("div");
+		dataContainerThree.classList.add("dataContainer");
 
-			//info container inside details item
-			var itemDetailsInfo = element.children[0].children[1].children[1];
-			itemDetailsInfo.style.display = "flex";
+			const lblGenre = document.createElement("label");
+			lblGenre.classList.add("lblGenre");
+			lblGenre.textContent = "Genre";
+			const txtGenre = document.createElement("h4");
+			txtGenre.classList.add("txtGenre");
+			txtGenre.textContent = `${currentObject.genres[0].name}`
 
-			var btnClose = element.children[0].children[0];
-			btnClose.style.display = "block";
-			btnClose.onclick = ()=>{
-				btnClose.style.display = "none";
-				element.style.transform= `translateX(0px)`;
-				element.style.transform= `translateX(0px)`;
-				element.style.transform= `translateY(0px)`;
-				element.style.width = `200px`;
-				element.style.height = `250px`;
-				element.style.position = "initial";
-				element.style.zIndex="3";
+		//Esrb container
+		const dataContainerFour = document.createElement("div");
+		dataContainerFour.classList.add("dataContainer");
 
-				//reseting details container
-				carouselItemContainer.style.height = "20%";
+			const lblEsrb = document.createElement("label");
+			lblEsrb.classList.add("lblEsrb");
+			lblEsrb.textContent = "ESRB";
+			const txtEsrb = document.createElement("h4");
+			txtEsrb.classList.add("txtEsrb");
+			txtEsrb.textContent = `${currentObject.esrb}`
 
-				//reseting lblName
-				lblName.style.textAlign = "center";
+	//appending
+	
+	stModalContentFooterSection.appendChild(lblTitle);
 
-				//reseting details info container
-				itemDetailsInfo.style.display = "none";
-			}
-		},400);
-	}
+	dataContainerOne.appendChild(lblRelease);
+	dataContainerOne.appendChild(txtRelease);
+
+	dataContainerTwo.appendChild(lblPlatform);
+	dataContainerTwo.appendChild(txtPlatform);
+
+	dataContainerThree.appendChild(lblGenre);
+	dataContainerThree.appendChild(txtGenre);
+
+	dataContainerFour.appendChild(lblEsrb);
+	dataContainerFour.appendChild(txtEsrb);
+
+	ndModalContentFooterSection.appendChild(dataContainerOne);
+	ndModalContentFooterSection.appendChild(dataContainerTwo);
+	ndModalContentFooterSection.appendChild(dataContainerThree);
+	ndModalContentFooterSection.appendChild(dataContainerFour);
+
+	modalContentFooter.appendChild(stModalContentFooterSection);
+	modalContentFooter.appendChild(ndModalContentFooterSection);
+	
+	modalContent.appendChild(modalContentImage);
+	modalContent.appendChild(modalContentFooter);
+
+	`
+		<div class="modalContent">
+			<div class="modalContentImage"></div>
+
+			<div class="modalContentFooter">
+				<div class="modalContentFooterSection">
+					<label class="lblTitle">GameName</label>
+				</div>
+
+				<div class="modalContentFooterSection">
+					<div class="dataContainer">
+						<label class="lblRelease">Release</label>
+						<h4 class="txtRelease">2011-04-18</h4>
+					</div>
+					<div class="dataContainer">
+						<label class="lblPlatform">Platform</label>
+						<h4 class="txtPlatform">Xbox 360</h4>
+					</div>
+					<div class="dataContainer">
+						<label class="lblGenres">Genres</label>
+						<h4 class="txtGenres">Shooter</h4>
+					</div>
+					<div class="dataContainer">
+						<label class="lblEsrb">ESRB</label>
+						<h4 class="txtEsrb">Mature</h4>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	`
+	
+	swal({
+		content: modalContent,
+		button:"Close",
+	})
+	.then((value) => {
+
+	});
+
 }
 

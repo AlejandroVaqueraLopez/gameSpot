@@ -1,8 +1,88 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
 body {
-  font-family: "Play", sans-serif;
-  background: #00439c;
-}
+  font-family: 'Play', sans-serif;
+  background: #00439c; }
+
+.swal-modal {
+  height: 500px;
+  width: 70%;
+  max-width: 900px;
+  border-radius: 10px; }
+  @media only screen and (max-width: 550px) {
+    .swal-modal {
+      width: 90%; } }
+  .swal-modal .swal-content {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; }
+    .swal-modal .swal-content .modalContent {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: indianred; }
+      .swal-modal .swal-content .modalContent .modalContentImage {
+        height: 70%;
+        width: 100%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        background-position: center;
+        background-size: cover; }
+      .swal-modal .swal-content .modalContent .modalContentFooter {
+        height: 30%;
+        width: 100%;
+        background: linear-gradient(to right, #004998, #0084cc);
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; }
+        .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin-bottom: 15px;
+          flex-wrap: wrap;
+          color: #fff; }
+          @media only screen and (max-width: 550px) {
+            .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection {
+              margin-bottom: 8px; } }
+          @media only screen and (min-width: 1000px) {
+            .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection {
+              margin-bottom: 20px; } }
+          .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .lblTitle {
+            font-size: 22px; }
+            @media only screen and (max-width: 1000px) {
+              .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .lblTitle {
+                font-size: 18px; } }
+          .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer {
+            height: 50px;
+            width: 20%;
+            min-width: 100px; }
+            .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblRelease, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblPlatform, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblGenre, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblEsrb {
+              font-size: 22px; }
+              @media only screen and (max-width: 1000px) {
+                .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblRelease, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblPlatform, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblGenre, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .lblEsrb {
+                  font-size: 18px; } }
+            .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtRelease, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtPlatform, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtGenre, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtEsrb {
+              font-size: 18px; }
+              @media only screen and (max-width: 1000px) {
+                .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtRelease, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtPlatform, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtGenre, .swal-modal .swal-content .modalContent .modalContentFooter .modalContentFooterSection .dataContainer .txtEsrb {
+                  font-size: 14px; } }
+  .swal-modal .swal-footer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    justify-content: flex-end;
+    background: none; }
+    .swal-modal .swal-footer .swal-button-container .swal-button {
+      background: linear-gradient(to right, #004998, #0084cc); }
 
 /*# sourceMappingURL=global.css.map */

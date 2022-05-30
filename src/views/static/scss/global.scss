@@ -8,3 +8,105 @@ body{
     font-family: 'Play', sans-serif;
     background: $gamespotColor;
 }
+//sweetalert modal
+.swal-modal{
+    height:500px;
+    width:70%;
+    max-width:900px;
+    border-radius:10px;
+    @media only screen and (max-width:550px){
+        width:90%;
+    }
+
+    .swal-content{
+        height:100%;
+        width:100%;
+        padding:0px;
+        margin:0px;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+        .modalContent{//custom content wrapper
+            width:100%;
+            height:100%;
+            border-radius:10px;
+            background:indianred;
+            .modalContentImage{
+                height:70%;
+                width:100%;
+                border-top-right-radius:10px;
+                border-top-left-radius:10px;
+                background-position:center;
+                background-size:cover;
+            }
+            .modalContentFooter{
+                height:30%;
+                width:100%;
+                background:linear-gradient(to right,#004998, #0084cc);
+                border-bottom-right-radius:10px;
+                border-bottom-left-radius:10px;
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                .modalContentFooterSection{
+                    width:100%;
+                    height:auto;
+                    //outline:solid white;
+                    display:flex;
+                    justify-content:space-around;
+                    align-items:center;
+                    margin-bottom:15px;
+                    flex-wrap:wrap;
+                    color:#fff;
+                    @media only screen and (max-width:550px){
+                        margin-bottom:8px;
+                    }
+                    @media only screen and (min-width:1000px){
+                        margin-bottom:20px;
+                    }
+                    .lblTitle{
+                        font-size:22px;
+                        @media only screen and (max-width:1000px){
+                            font-size:18px;
+                        }
+                    }
+                    .dataContainer{
+                        .lblRelease,.lblPlatform,.lblGenre,.lblEsrb{
+                            font-size:22px;
+                            @media only screen and (max-width:1000px){
+                                font-size:18px;
+                            }
+                        }
+                        .txtRelease,.txtPlatform,.txtGenre,.txtEsrb{
+                            font-size:18px;
+                            @media only screen and (max-width:1000px){
+                                font-size:14px;
+                            }
+                        }
+                        height:50px;
+                        width:20%;
+                        min-width:100px;
+                        //outline:solid orange;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+    .swal-footer{
+        position:absolute;
+        top:0px;
+        right:0px;
+        display:flex;
+        justify-content:flex-end;
+        background:none;
+        .swal-button-container{
+            .swal-button{
+                background:linear-gradient(to right,#004998, #0084cc);
+            }
+        }
+    }
+
+}

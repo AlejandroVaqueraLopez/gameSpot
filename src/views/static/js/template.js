@@ -1,4 +1,6 @@
+//imports
 import fetchData from "./fetchData.js";
+//variables
 const carouselList = document.querySelector(".carousel-container__list");
 const waitContainer = document.querySelector(".loading-container");
 //filters
@@ -19,6 +21,7 @@ const parseData = (data) => {
 	let parsedData = [];
 	data.forEach((item) => {
 		const parsedObject = {
+			id:item.id,
 			name: item?.name || "No name",
 			released: item?.released || "Not released data",
 			image: item?.background_image || "../icons/empty-icon.png",
@@ -43,13 +46,11 @@ const listItemTemplate = (item) => {
 	//console.log(item.name)
 	const carouselItem = document.createElement("li");
 	carouselItem.setAttribute("class","carousel-item");
+	carouselItem.setAttribute("id",`${item.id}`);
 
 	const carouselItemContainer = document.createElement("div");
 	carouselItemContainer.classList.add("carousel-item__container","hover");
 	carouselItemContainer.style.backgroundImage = `url(${item.image})`
-
-	const btnClose = document.createElement("button");
-	btnClose.setAttribute("class","btn-close");
 
 	const carouselItemDetails = document.createElement("div");
 	carouselItemDetails.setAttribute("class","carousel-item__details");
@@ -58,66 +59,10 @@ const listItemTemplate = (item) => {
 	carouselItemName.setAttribute("class","carousel-item__name");
 	carouselItemName.textContent = `${item.name}`;
 
-	const carouselItemDetailsInfo = document.createElement("div");
-	carouselItemDetailsInfo.setAttribute("class","carousel-item__details-info");
-
-	//released
-	const carouselItemReleased = document.createElement("div");
-	carouselItemReleased.setAttribute("class","carousel-item__released");
-	const lblReleased = document.createElement("label");
-	lblReleased.textContent = "Release";
-	const h6Released = document.createElement("h6");
-	h6Released.textContent = `${item.released}`;
-	//platforms
-	const carouselItemPlatforms = document.createElement("div");
-	carouselItemPlatforms.setAttribute("class","carousel-item__platforms");
-	const lblPlatform = document.createElement("label");
-	lblPlatform.textContent = "Platform";
-	const h6Platform = document.createElement("h6");
-	h6Platform.textContent = `${item?.platforms[0]?.platform?.name || item.platforms}`;
-	//genere
-	const carouselItemGeneres = document.createElement("div");
-	carouselItemGeneres.setAttribute("class","carousel-item__generes");
-	const lblGeneres = document.createElement("label");
-	lblGeneres.textContent = "Generes";
-	const h6Generes = document.createElement("h6");
-	h6Generes.textContent = `${item?.genres[0]?.name || item.genres}`;
-	//esrb
-	const carouselItemEsrb = document.createElement("div");
-	carouselItemEsrb.setAttribute("class","carousel-item__esrb");
-	const lblEsrb= document.createElement("label");
-	lblEsrb.textContent = "ESRB";
-	const h6Esrb = document.createElement("h6");
-	h6Esrb.textContent = `${item.esrb}`;
-
-	//appending released section
-	carouselItemReleased.appendChild(lblReleased);
-	carouselItemReleased.appendChild(h6Released);
-
-	//appending platforms section
-	carouselItemPlatforms.appendChild(lblPlatform);
-	carouselItemPlatforms.appendChild(h6Platform);
-
-	//appending generes section
-	carouselItemGeneres.appendChild(lblGeneres);
-	carouselItemGeneres.appendChild(h6Generes);
-
-	//appending esrb section
-	carouselItemEsrb.appendChild(lblEsrb);
-	carouselItemEsrb.appendChild(h6Esrb);
-
-	//appending details info section
-	carouselItemDetailsInfo.appendChild(carouselItemReleased);
-	carouselItemDetailsInfo.appendChild(carouselItemPlatforms);
-	carouselItemDetailsInfo.appendChild(carouselItemGeneres);
-	carouselItemDetailsInfo.appendChild(carouselItemEsrb);
-
 	//appending details section
 	carouselItemDetails.appendChild(carouselItemName);
-	carouselItemDetails.appendChild(carouselItemDetailsInfo);
 
 	//appending itemContainer section
-	carouselItemContainer.appendChild(btnClose);
 	carouselItemContainer.appendChild(carouselItemDetails);
 
 	//appending item section
@@ -130,27 +75,8 @@ const listItemTemplate = (item) => {
 
 							<div class="carousel-item__details">
 									<h4 class="carousel-item__name">Resident evil 4</h4>
-
-									<div class="carousel-item__details-info">
-											<div class="carousel-item__released">
-													<label>Release</label>
-													<h6>2020-05-22</h6>
-											</div>
-											<div class="carousel-item__platforms">
-													<label>Platform</label>
-													<h6>Playstation 5</h6>
-											</div>
-											<div class="carousel-item__generes">
-													<label>Genere</label>
-													<h6>Action</h6>
-											</div>
-											<div class="carousel-item__esrb">
-													<label>ESRB</label>
-													<h6>Mature</h6>
-											</div>
-									</div>
-
 							</div>
+
 					</div>
 			</li>
 	`
@@ -247,9 +173,6 @@ txtFilter.addEventListener("keyup",()=>{
 
 	nonFilteredList.forEach((item) => {
 		if((item.name.toLowerCase()).includes(word)){
-			//console.group("match");
-			//console.log(item);//matched games
-			//console.groupEnd();
 			filteredList.push(item);
 		}
 	})
@@ -320,3 +243,5 @@ esrbFilter.addEventListener("change",()=>{
 	})
 	render(filteredList);//we render the filtered items
 })
+
+export {nonFilteredList};
